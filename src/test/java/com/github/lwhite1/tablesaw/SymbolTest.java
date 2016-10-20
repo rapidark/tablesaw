@@ -45,7 +45,7 @@ public class SymbolTest {
 //	  open.addCell("1.0");
 	 
 	  LocalDate now = LocalDate.now();
-		for (int i = 0; i < 1000*10000; i++) {
+		for (int i = 0; i < 1*100; i++) {
 			open.addCell("1.1");
 			close.addCell("1.1");
 			hign.addCell("1.1");
@@ -63,6 +63,7 @@ public class SymbolTest {
 	  System.out.println(folder);
 	  Stopwatch stopwatch = Stopwatch.createStarted();
 	  String dbName = table.save(folder);
+	  System.out.println(dbName);
 	  stopwatch.stop();
 	  System.out.println("write cost: " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + " ms");
 	  
