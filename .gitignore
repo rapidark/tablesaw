@@ -18,3 +18,5 @@ testfolder/
 *.iml
 test_col_test
 
+/bin/
+/tmp/
