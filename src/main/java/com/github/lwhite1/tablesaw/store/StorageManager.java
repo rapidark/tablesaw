@@ -57,8 +57,17 @@ public class StorageManager {
   private static final int READER_POOL_SIZE = 4;
 
   static String separator() {
-    FileSystem fileSystem = FileSystems.getDefault();
-    return fileSystem.getSeparator();
+	  // fix Pattern compile exception in windows
+	  if(!isWindows()) {
+	    FileSystem fileSystem = FileSystems.getDefault();
+	    return fileSystem.getSeparator();
+	  }
+	  return "\\\\";
+  }
+  
+  public static boolean isWindows()
+  {
+      return System.getProperty("os.name").toLowerCase().startsWith("windows");
   }
 
   /**
